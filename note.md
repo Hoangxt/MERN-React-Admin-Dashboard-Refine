@@ -1,3 +1,13 @@
+## github
+
+echo "# MERN-React-Admin-Dashboard-Refine" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Hoangxt/MERN-React-Admin-Dashboard-Refine.git
+git push -u origin main
+
 ## Set up the project
 
 npm create refine-app@latest client
@@ -15,3 +25,11 @@ Done Setting up the project
 - in App.tsx line 94 [Refine]
 
 ## Home page
+
+- set up side bar
+
+## Properties
+
+## Create a new property
+
+## BACK END
