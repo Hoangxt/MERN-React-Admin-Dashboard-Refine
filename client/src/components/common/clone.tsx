@@ -53,7 +53,6 @@ const PropertyCard = ({
           <Typography fontSize={16} fontWeight={500} color="#11142d">
             {title}
           </Typography>
-
           <Stack direction="row" gap={0.5} alignItems="flex-start">
             <Place
               sx={{
@@ -67,7 +66,6 @@ const PropertyCard = ({
             </Typography>
           </Stack>
         </Stack>
-
         <Box
           px={1.5}
           py={0.5}

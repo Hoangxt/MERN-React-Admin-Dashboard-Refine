@@ -33,3 +33,12 @@ Done Setting up the project
 ## Create a new property
 
 ## BACK END
+
+npm i dotenv express mongoose cors nodemon cloudinary
+
+## Properties [Routes, Display Pagination, Sorting & Filtering]
+
+- in all-properties.tsx, properties.controller.js, customButton
+  Display the properties
+
+- useTable hook
