@@ -131,6 +131,7 @@ function App() {
       <CssBaseline />
       <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
       <RefineSnackbarProvider>
+        {/* name/pages. Exp: http://localhost:3000/properties */}
         <Refine
           dataProvider={dataProvider("http://localhost:8080/api/v1")}
           notificationProvider={notificationProvider}

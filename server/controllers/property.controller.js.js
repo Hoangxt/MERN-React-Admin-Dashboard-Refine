@@ -55,11 +55,13 @@ const getAllProperties = async (req, res) => {
 };
 
 const getPropertyDetail = async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.params; // get the id from the url
   const propertyExists = await Property.findOne({ _id: id }).populate(
-    "creator"
+    // find the property with the id
+    "creator" // populate the creator field
   );
   if (propertyExists) {
+    // if the property exists
     res.status(200).json(propertyExists);
   } else {
     res.status(404).json({ message: "Property not found" });
@@ -103,7 +105,7 @@ const createProperty = async (req, res) => {
 
 const updateProperty = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id } = req.params; // id name of the property to update
     const { title, description, propertyType, location, price, photo } =
       req.body;
 
@@ -137,14 +139,15 @@ const deleteProperty = async (req, res) => {
 
     if (!propertyToDelete) throw new Error("Property not found");
 
-    const session = await mongoose.startSession();
-    session.startTransaction();
+    const session = await mongoose.startSession(); // start a session
+    session.startTransaction(); // start a transaction
 
-    propertyToDelete.remove({ session });
-    propertyToDelete.creator.allProperties.pull(propertyToDelete);
+    propertyToDelete.remove({ session }); // remove the property
 
-    await propertyToDelete.creator.save({ session });
-    await session.commitTransaction();
+    propertyToDelete.creator.allProperties.pull(propertyToDelete); // remove the property from the creator's allProperties array
+
+    await propertyToDelete.creator.save({ session }); // save the creator
+    await session.commitTransaction(); // commit the transaction
 
     res.status(200).json({ message: "Property deleted successfully" });
   } catch (error) {
